@@ -1,218 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ashish Rathore • Digital Marketing Portfolio</title>
-  <meta name="description" content="Portfolio of Ashish Rathore – Digital Marketing fresher skilled in Google Analytics, Google Ads, SEO tools, and social media marketing."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg1:#0f1226; --bg2:#14183a; --acc:#6cf0ff; --soft:#b6c1ff; --card:#161a3c; --text:#f5f7ff; --muted:#b9c3e6; --glow:#7ee0ff;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; color:var(--text); font-family:Inter,system-ui,sans-serif; 
-      background: radial-gradient(1200px 800px at 20% -10%, #223 10%, transparent 60%),
-      radial-gradient(900px 600px at 90% 10%, #1b2148 10%, transparent 60%),
-      linear-gradient(180deg, var(--bg1), var(--bg2));
-      min-height:100vh; overflow-x:hidden
-    }
-    /* Animated gradient veil */
-    .gradient-veil{
-      position:fixed; inset:-20vmax; z-index:-2; filter:blur(60px); opacity:.55;pointer-events:none;
-      background: conic-gradient(from 180deg at 50% 50%, #5b8cff, #6cf0ff, #a57bff, #ff7ad9, #5b8cff);
-      animation: swirl 22s linear infinite
-    }
-    @keyframes swirl{to{transform:rotate(360deg)}}
-    /* Floating particles */
-    .particles{position:fixed; inset:0; z-index:-1; pointer-events:none; overflow:hidden}
-    .particle{position:absolute; width:6px; height:6px; border-radius:50%; background:radial-gradient(circle at 30% 30%, var(--glow), transparent 70%); opacity:.35; animation: float 14s ease-in-out infinite}
-    @keyframes float{0%{transform:translateY(0) translateX(0)}50%{transform:translateY(-40px) translateX(20px)}100%{transform:translateY(0) translateX(0)}}
-    header{position:sticky; top:0; backdrop-filter:saturate(140%) blur(8px); background:rgba(10,12,30,.45); border-bottom:1px solid rgba(255,255,255,.06); z-index:50}
-    .nav{max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:14px 20px}
-    .brand{display:flex; gap:10px; align-items:center; font-family:Poppins,sans-serif}
-    .brand .logo{width:36px; height:36px; border-radius:12px; background:linear-gradient(135deg,#7ee0ff,#9d7dff); box-shadow:0 0 30px rgba(110,220,255,.4) inset, 0 8px 24px rgba(0,0,0,.3)}
-    .brand .title{font-weight:800; letter-spacing:.4px}
-    .brand .subtitle{display:block; font-size:12px; color:var(--muted); font-weight:500; letter-spacing:.6px}
-    .menu a{color:var(--text); text-decoration:none; margin-left:18px; font-weight:600; font-size:14px; opacity:.9}
-    .menu a:hover{opacity:1; text-shadow:0 0 18px rgba(126,224,255,.5)}
-    .container{max-width:1100px; margin:0 auto; padding:70px 20px}
-    /* Hero */
-    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:30px; align-items:center; padding-top:40px}
-    .pill{display:inline-flex; align-items:center; gap:8px; background:rgba(126,224,255,.08); border:1px solid rgba(126,224,255,.25); color:var(--acc); padding:8px 12px; border-radius:999px; font-weight:700; font-size:12px; letter-spacing:.6px}
-    h1{font-family:Poppins,sans-serif; font-size:44px; line-height:1.1; margin:14px 0}
-    .lead{color:var(--muted); font-size:16px; max-width:60ch}
-    .cta{display:flex; gap:14px; margin-top:22px; flex-wrap:wrap}
-    .btn{border:0; padding:12px 18px; border-radius:14px; font-weight:700; cursor:pointer}
-    .btn-primary{background:linear-gradient(135deg,#7ee0ff,#a98bff); color:#0e122e; box-shadow:0 10px 30px rgba(126,224,255,.25)}
-    .btn-ghost{background:rgba(255,255,255,.06); color:var(--text); border:1px solid rgba(255,255,255,.12)}
-    .mock{height:250px; border-radius:20px; background:linear-gradient(135deg, #1a2049, #232b6e); border:1px solid rgba(255,255,255,.08); box-shadow:0 20px 40px rgba(0,0,0,.35); position:relative; overflow:hidden}
-    .code-line{position:absolute; left:12px; right:12px; height:8px; border-radius:4px; background:linear-gradient(90deg, #6cf0ff33, #a98bff55, #6cf0ff33); animation: scan 3.6s linear infinite}
-    .code-line:nth-child(2){top:40px; animation-delay:.4s}
-    .code-line:nth-child(3){top:80px; animation-delay:.8s}
-    .code-line:nth-child(4){top:120px; animation-delay:1.2s}
-    .code-line:nth-child(5){top:160px; animation-delay:1.6s}
-    .code-line:nth-child(6){top:200px; animation-delay:2s}
-    @keyframes scan{0%{transform:translateX(-20%)}50%{transform:translateX(20%)}100%{transform:translateX(-20%)}}
-    /* Sections */
-    section{scroll-margin-top:80px}
-    .section-title{font-family:Poppins,sans-serif; font-size:28px; margin:0 0 22px}
-    .card{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:20px; box-shadow:0 10px 30px rgba(0,0,0,.25)}
-    .about p{color:var(--muted); line-height:1.8}
-    .skills-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px}
-    @media (min-width:800px){.skills-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-    .skill{padding:14px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:14px}
-    .skill .name{font-weight:700}
-    .bar{height:8px; border-radius:6px; background:rgba(255,255,255,.08); margin-top:10px; overflow:hidden}
-    .bar > span{display:block; height:100%; background:linear-gradient(90deg,#7ee0ff,#a98bff); width:0}
-    .projects{display:grid; grid-template-columns:1fr; gap:18px}
-    @media (min-width:840px){.projects{grid-template-columns:repeat(3,1fr)}}
-    .project h3{margin:10px 0 6px}
-    .project p{color:var(--muted); font-size:14px}
-    .project a{display:inline-block; margin-top:10px; color:var(--text); text-decoration:none; font-weight:700}
-    footer{padding:40px 20px; color:var(--muted); text-align:center}
-    .reveal{opacity:0; transform:translateY(18px); transition:.7s ease}
-    .reveal.show{opacity:1; transform:none}
-  </style>
-</head>
-<body>
-  <div class="gradient-veil"></div>
-  <div class="particles"></div>
-
-  <header>
-    <nav class="nav">
-      <div class="brand">
-        <div class="logo"></div>
-        <div>
-          <div class="title">Ashish Rathore</div>
-          <span class="subtitle">Digital Marketing Fresher</span>
-        </div>
-      </div>
-      <div class="menu">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-      </div>
-    </nav>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <div>
-        <span class="pill">Open to Work • Digital Marketing</span>
-        <h1>Turning clicks into customers.</h1>
-        <p class="lead">Recent graduate from Delhi University with hands-on experience in SEO, Google Ads, Google Analytics, and website creation for real businesses.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="#projects">View Projects</a>
-          <a class="btn btn-ghost" href="#skills">My Skills</a>
-        </div>
-      </div>
-      <div class="mock">
-        <div class="code-line" style="top:20px"></div>
-        <div class="code-line"></div>
-        <div class="code-line"></div>
-        <div class="code-line"></div>
-        <div class="code-line"></div>
-        <div class="code-line"></div>
-      </div>
-    </section>
-
-    <section id="about" class="about" style="margin-top:60px">
-      <h2 class="section-title">About Me</h2>
-      <div class="card reveal">
-        <p>Hi, I’m <strong>Ashish Rathore</strong> — a fresher in digital marketing with a degree from Delhi University. I’ve built websites and blogs for local businesses, managed SEO and analytics, and I’m eager to learn fast on real campaigns.</p>
-      </div>
-    </section>
-
-    <section id="skills" style="margin-top:60px">
-      <h2 class="section-title">Skills</h2>
-      <div class="skills-grid reveal">
-        <div class="skill"><div class="name">Google Analytics</div><div class="bar"><span style="--w:85%"></span></div></div>
-        <div class="skill"><div class="name">Google Ads</div><div class="bar"><span style="--w:80%"></span></div></div>
-        <div class="skill"><div class="name">Google Search Console</div><div class="bar"><span style="--w:80%"></span></div></div>
-        <div class="skill"><div class="name">Google My Business</div><div class="bar"><span style="--w:78%"></span></div></div>
-        <div class="skill"><div class="name">SEMrush</div><div class="bar"><span style="--w:75%"></span></div></div>
-        <div class="skill"><div class="name">Ahrefs</div><div class="bar"><span style="--w:72%"></span></div></div>
-        <div class="skill"><div class="name">Social Media Marketing</div><div class="bar"><span style="--w:82%"></span></div></div>
-        <div class="skill"><div class="name">Digital Marketing</div><div class="bar"><span style="--w:80%"></span></div></div>
-        <div class="skill"><div class="name">Basic Excel</div><div class="bar"><span style="--w:70%"></span></div></div>
-        <div class="skill"><div class="name">SQL (Basics)</div><div class="bar"><span style="--w:60%"></span></div></div>
-      </div>
-    </section>
-
-    <section id="projects" style="margin-top:60px">
-      <h2 class="section-title">Projects</h2>
-      <div class="projects">
-        <article class="card reveal">
-          <h3>Shree Radha Tour – Travel Agency Website</h3>
-          <p>Responsive site for a travel agency with service pages and contact flow to drive inquiries.</p>
-          <a href="https://shreeradhatour.kesug.com/" target="_blank">Visit Project →</a>
-        </article>
-        <article class="card reveal">
-          <h3>Travel Blog</h3>
-          <p>Blogger site for travel tips, itineraries, and guides with clean structure and on-page SEO.</p>
-          <a href="https://travelissolution.blogspot.com" target="_blank">Visit Project →</a>
-        </article>
-        <article class="card reveal">
-          <h3>Local Restaurant Website</h3>
-          <p>Modern Wix site to showcase menu, hours and location with Google Business basics.</p>
-          <a href="https://tolaofrathore.wixsite.com/my-site-10" target="_blank">Visit Project →</a>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    © <span id="year"></span> Ashish Rathore • Built with ♥
-  </footer>
-
-  <script>
-    // Animate skill bars
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          e.target.classList.add('show');
-          e.target.querySelectorAll?.('.bar > span')?.forEach(b=>{
-            const w = b.style.getPropertyValue('--w') || '80%';
-            requestAnimationFrame(()=> b.style.width = w);
-          });
-        }
-      })
-    },{threshold:0.2});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-    document.getElementById('year').textContent = new Date().getFullYear();
-    // Floating particles
-    const wrap = document.querySelector('.particles');
-    const count = 28;
-    for(let i=0;i<count;i++){
-      const d=document.createElement('div'); 
-      d.className='particle';
-      d.style.left = Math.random()*100 + 'vw';
-      d.style.top = Math.random()*100 + 'vh';
-      d.style.animationDelay = (Math.random()*6).toFixed(2)+'s';
-      wrap.appendChild(d);
-    }
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Ashish Rathore • Digital Marketing Portfolio</title>
-  <meta name="description" content="Portfolio of Ashish Rathore — Digital Marketing fresher skilled in Google Analytics, Google Ads, SEO & social media."/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg1:#0d1025; --bg2:#14183a; --card:#161a3c;
-      --text:#f6f7ff; --muted:#b9c3e6; --acc:#74e6ff; --acc2:#a889ff;
-      --ring: 0 0 0 8px #74e6ff22;
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0d1025, #14183a);
+      color: #f6f7ff;
+      margin: 0;
     }
-    *{box-sizing:border-box}
-    html{scro
-         
+    header {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #74e6ff;
+    }
+    header p {
+      color: #b9c3e6;
+    }
+    .btn {
+      background: linear-gradient(135deg, #74e6ff, #a889ff);
+      color: #0d1025;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+      margin-top: 15px;
+    }
+    section {
+      max-width: 900px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+    h2 {
+      color: #74e6ff;
+      margin-bottom: 10px;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li {
+      padding: 5px 0;
+    }
+    a {
+      color: #74e6ff;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #b9c3e6;
+      font-size: 0.9rem;
+    }
+    /* Contact Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    input, textarea {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+    button {
+      background: linear-gradient(135deg, #74e6ff, #a889ff);
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Ashish Rathore</h1>
+    <p>Fresher • Digital Marketing Enthusiast</p>
+    <a class="btn" href="Black%20and%20White%20Simple%20Business%20School%20Graduate%20Corporate%20Resume%20(9).pdf" download>📄 Download Resume</a>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p>I am Ashish Rathore, a fresher who has completed graduation from Delhi University. Skilled in Digital Marketing, SEO tools, analytics, and advertising platforms. Passionate about helping businesses grow online.</p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <ul>
+      <li>Google Analytics</li>
+      <li>Google Ads</li>
+      <li>Google Search Console</li>
+      <li>Google My Business</li>
+      <li>SEMrush</li>
+      <li>Ahrefs</li>
+      <li>Social Media Marketing</li>
+      <li>Digital Marketing</li>
+      <li>Basic Excel</li>
+      <li>SQL</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <ul>
+      <li><a href="https://shreeradhatour.kesug.com/" target="_blank">Local Travel Agency Website</a></li>
+      <li><a href="https://travelissolution.blogspot.com" target="_blank">Travel Blog</a></li>
+      <li><a href="https://tolaofrathore.wixsite.com/my-site-10" target="_blank">Restaurant Website</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact Me</h2>
+    <form action="https://formspree.io/f/movqpjkn" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="_replyto" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Ashish Rathore • Built with ♥
+  </footer>
+
+</body>
+</html>
