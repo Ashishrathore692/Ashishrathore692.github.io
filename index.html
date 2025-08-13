@@ -4,139 +4,215 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Ashish Rathore • Digital Marketing Portfolio</title>
+  <meta name="description" content="Digital Marketing fresher portfolio of Ashish Rathore — SEO, Google Ads, Analytics, SMM & projects."/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0d1025, #14183a);
-      color: #f6f7ff;
-      margin: 0;
+    :root{
+      --bg1:#0d1025; --bg2:#14183a; --glass:#ffffff0c; --glass-b:#ffffff18;
+      --text:#f6f7ff; --muted:#b9c3e6; --acc:#74e6ff; --acc2:#a889ff;
     }
-    header {
-      text-align: center;
-      padding: 40px 20px;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:Inter,system-ui,sans-serif; color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% -10%, #1b2148 10%, transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, #0f1440 10%, transparent 60%),
+        linear-gradient(180deg,var(--bg1),var(--bg2));
+      min-height:100vh; overflow-x:hidden;
     }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      color: #74e6ff;
-    }
-    header p {
-      color: #b9c3e6;
-    }
-    .btn {
-      background: linear-gradient(135deg, #74e6ff, #a889ff);
-      color: #0d1025;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      display: inline-block;
-      margin-top: 15px;
-    }
-    section {
-      max-width: 900px;
-      margin: auto;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-    }
-    h2 {
-      color: #74e6ff;
-      margin-bottom: 10px;
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    ul li {
-      padding: 5px 0;
-    }
-    a {
-      color: #74e6ff;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #b9c3e6;
-      font-size: 0.9rem;
-    }
-    /* Contact Form */
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    input, textarea {
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-      outline: none;
-      font-size: 1rem;
-    }
-    button {
-      background: linear-gradient(135deg, #74e6ff, #a889ff);
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
+
+    /* animated aurora + particles */
+    .aurora{position:fixed; inset:-40vmax; z-index:-2; filter:blur(70px); opacity:.55; pointer-events:none;
+      background: conic-gradient(from 180deg at 50% 50%, #5b8cff, #74e6ff, #a889ff, #ff7ad9, #5b8cff);
+      animation: swirl 28s linear infinite}
+    @keyframes swirl{to{transform:rotate(360deg)}}
+    .particles{position:fixed; inset:0; z-index:-1; pointer-events:none}
+    .dot{position:absolute; width:6px; height:6px; border-radius:50%;
+      background:radial-gradient(circle at 30% 30%, #74e6ff, transparent 70%); opacity:.35;
+      animation: float 14s ease-in-out infinite}
+    @keyframes float{0%{transform:translateY(0) translateX(0)}50%{transform:translateY(-40px) translateX(20px)}100%{transform:translateY(0) translateX(0)}}
+
+    header{position:sticky; top:0; z-index:50; backdrop-filter: blur(8px) saturate(140%);
+      background:rgba(8,10,28,.55); border-bottom:1px solid #ffffff14}
+    nav{max-width:1100px; margin:auto; padding:14px 18px; display:flex; align-items:center; justify-content:space-between}
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#74e6ff,#a889ff);
+      box-shadow: inset 0 0 30px #ffffff3a, 0 10px 26px #00000055}
+    .name{font-weight:800; letter-spacing:.3px}
+    .tag{display:block; font-size:12px; color:var(--muted)}
+    .menu a{color:var(--text); text-decoration:none; margin-left:18px; font-weight:700; font-size:14px; opacity:.9}
+    .menu a:hover{opacity:1; text-shadow:0 0 18px #74e6ff88}
+
+    .wrap{max-width:1100px; margin:0 auto; padding:64px 18px}
+    /* INTRO (top section) */
+    .intro{display:grid; gap:28px; grid-template-columns:1.1fr .9fr; align-items:center}
+    @media (max-width:900px){.intro{grid-template-columns:1fr}}
+    .pill{display:inline-flex; gap:8px; align-items:center; padding:8px 12px; border-radius:999px;
+      background:#74e6ff1a; border:1px solid #74e6ff33; color:#74e6ff; font-weight:800; font-size:12px}
+    h1{font-size:46px; line-height:1.08; margin:12px 0 8px}
+    .lead{color:var(--muted); max-width:60ch}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .btn{border:0; padding:12px 16px; border-radius:14px; font-weight:800; cursor:pointer; text-decoration:none; display:inline-block}
+    .btn-primary{background:linear-gradient(135deg,#74e6ff,#a889ff); color:#0f1230; box-shadow:0 10px 30px #74e6ff40}
+    .mock{height:260px;border-radius:20px;background:linear-gradient(135deg,#1a2049,#232b6e);
+      border:1px solid #ffffff12; box-shadow:0 20px 40px #0009; position:relative; overflow:hidden}
+    .scan{position:absolute; left:10px; right:10px; height:10px; border-radius:6px;
+      background:linear-gradient(90deg, #74e6ff33, #a889ff66, #74e6ff33); animation:scan 3.8s linear infinite}
+    .scan:nth-child(1){top:34px} .scan:nth-child(2){top:78px; animation-delay:.4s}
+    .scan:nth-child(3){top:122px; animation-delay:.8s}
+    .scan:nth-child(4){top:166px; animation-delay:1.2s}
+    .scan:nth-child(5){top:210px; animation-delay:1.6s}
+    @keyframes scan{0%{transform:translateX(-20%)}50%{transform:translateX(20%)}100%{transform:translateX(-20%)}}
+
+    /* sections + glass cards */
+    section{scroll-margin-top:80px}
+    .section-title{font-size:28px; margin:34px 0 14px}
+    .card{background:var(--glass); border:1px solid var(--glass-b); border-radius:18px; padding:20px; box-shadow:0 10px 30px #0007; backdrop-filter: blur(8px)}
+    .about p{color:var(--muted); line-height:1.8}
+
+    .skills{display:grid; gap:14px; grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (min-width:820px){.skills{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    .skill{padding:14px; border-radius:14px; background:linear-gradient(180deg,#ffffff0a,#ffffff06); border:1px solid #ffffff14}
+    .skill .n{font-weight:800}
+    .bar{height:8px; border-radius:6px; background:#ffffff14; margin-top:10px; overflow:hidden}
+    .bar>span{display:block; height:100%; width:0; background:linear-gradient(90deg,#74e6ff,#a889ff)}
+
+    .projects{display:grid; gap:16px}
+    @media (min-width:900px){.projects{grid-template-columns:repeat(3,1fr)}}
+    .project h3{margin:10px 0 6px}
+    .project p{color:var(--muted); font-size:14px}
+    .project a{display:inline-block; margin-top:10px; font-weight:800; color:var(--text); text-decoration:none}
+    .project a:hover{box-shadow:0 0 0 8px #74e6ff22}
+
+    footer{padding:40px 18px; color:var(--muted); text-align:center}
+
+    /* reveal on scroll */
+    .reveal{opacity:0; transform:translateY(18px); transition:.7s ease}
+    .reveal.show{opacity:1; transform:none}
   </style>
 </head>
 <body>
+  <div class="aurora"></div>
+  <div class="particles" aria-hidden="true"></div>
 
   <header>
-    <h1>Ashish Rathore</h1>
-    <p>Fresher • Digital Marketing Enthusiast</p>
-    <a class="btn" href="Black%20and%20White%20Simple%20Business%20School%20Graduate%20Corporate%20Resume%20(9).pdf" download>📄 Download Resume</a>
+    <nav>
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <div class="name">Ashish Rathore</div>
+          <span class="tag">Digital Marketing Fresher</span>
+        </div>
+      </div>
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+      </div>
+    </nav>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>I am Ashish Rathore, a fresher who has completed graduation from Delhi University. Skilled in Digital Marketing, SEO tools, analytics, and advertising platforms. Passionate about helping businesses grow online.</p>
-  </section>
+  <main class="wrap">
+    <!-- INTRO (top section) -->
+    <section class="intro">
+      <div>
+        <div class="pill">Open to Work • Digital Marketing</div>
+        <h1>Turning clicks into customers.</h1>
+        <p class="lead">
+          Delhi University graduate & hands-on digital marketer. Comfortable with SEO tools,
+          Google Ads, Analytics, and creating simple business websites that convert.
+        </p>
+        <div class="cta">
+          <!-- Resume download button -->
+          <a class="btn btn-primary"
+             href="Black%20and%20White%20Simple%20Business%20School%20Graduate%20Corporate%20Resume%20(9).pdf"
+             download>📄 Download Resume</a>
+        </div>
+      </div>
+      <div class="mock" aria-hidden="true">
+        <div class="scan"></div><div class="scan"></div><div class="scan"></div><div class="scan"></div><div class="scan"></div>
+      </div>
+    </section>
 
-  <section>
-    <h2>Skills</h2>
-    <ul>
-      <li>Google Analytics</li>
-      <li>Google Ads</li>
-      <li>Google Search Console</li>
-      <li>Google My Business</li>
-      <li>SEMrush</li>
-      <li>Ahrefs</li>
-      <li>Social Media Marketing</li>
-      <li>Digital Marketing</li>
-      <li>Basic Excel</li>
-      <li>SQL</li>
-    </ul>
-  </section>
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="card reveal">
+        <p>Hi, I’m <strong>Ashish Rathore</strong> — a fresher in digital marketing with a graduation from Delhi University.
+        I’ve built websites & blogs for local businesses, managed basic SEO, tracked performance with Analytics/Search Console,
+        and I’m ready to learn fast on real campaigns.</p>
+      </div>
+    </section>
 
-  <section>
-    <h2>Projects</h2>
-    <ul>
-      <li><a href="https://shreeradhatour.kesug.com/" target="_blank">Local Travel Agency Website</a></li>
-      <li><a href="https://travelissolution.blogspot.com" target="_blank">Travel Blog</a></li>
-      <li><a href="https://tolaofrathore.wixsite.com/my-site-10" target="_blank">Restaurant Website</a></li>
-    </ul>
-  </section>
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills reveal">
+        <div class="skill"><div class="n">Google Analytics</div><div class="bar"><span style="--w:85%"></span></div></div>
+        <div class="skill"><div class="n">Google Ads</div><div class="bar"><span style="--w:82%"></span></div></div>
+        <div class="skill"><div class="n">Google Search Console</div><div class="bar"><span style="--w:80%"></span></div></div>
+        <div class="skill"><div class="n">Google My Business</div><div class="bar"><span style="--w:78%"></span></div></div>
+        <div class="skill"><div class="n">SEMrush</div><div class="bar"><span style="--w:74%"></span></div></div>
+        <div class="skill"><div class="n">Ahrefs</div><div class="bar"><span style="--w:72%"></span></div></div>
+        <div class="skill"><div class="n">Social Media Marketing</div><div class="bar"><span style="--w:82%"></span></div></div>
+        <div class="skill"><div class="n">Digital Marketing</div><div class="bar"><span style="--w:80%"></span></div></div>
+        <div class="skill"><div class="n">Basic Excel</div><div class="bar"><span style="--w:70%"></span></div></div>
+        <div class="skill"><div class="n">SQL (Basics)</div><div class="bar"><span style="--w:60%"></span></div></div>
+      </div>
+    </section>
 
-  <section>
-    <h2>Contact Me</h2>
-    <form action="https://formspree.io/f/movqpjkn" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="_replyto" placeholder="Your Email" required>
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects">
+        <article class="card project reveal">
+          <h3>Shree Radha Tour – Travel Agency Website</h3>
+          <p>Responsive site with service pages & contact flow to drive inquiries.</p>
+          <a href="https://shreeradhatour.kesug.com/" target="_blank" rel="noopener">Visit Project →</a>
+        </article>
+        <article class="card project reveal">
+          <h3>Travel Blog</h3>
+          <p>Blogspot site for travel tips & itineraries with clean on-page SEO.</p>
+          <a href="https://travelissolution.blogspot.com" target="_blank" rel="noopener">Visit Project →</a>
+        </article>
+        <article class="card project reveal">
+          <h3>Local Restaurant Website</h3>
+          <p>Modern Wix site to showcase menu, hours & location with GMB basics.</p>
+          <a href="https://tolaofrathore.wixsite.com/my-site-10" target="_blank" rel="noopener">Visit Project →</a>
+        </article>
+      </div>
+    </section>
+  </main>
 
-  <footer>
-    © 2025 Ashish Rathore • Built with ♥
-  </footer>
+  <footer>© <span id="year"></span> Ashish Rathore • Built with ♥</footer>
 
+  <script>
+    // particles
+    const wrap = document.querySelector('.particles');
+    const N = 28;
+    for(let i=0;i<N;i++){
+      const d = document.createElement('div');
+      d.className='dot';
+      d.style.left = Math.random()*100 + 'vw';
+      d.style.top = Math.random()*100 + 'vh';
+      d.style.animationDelay = (Math.random()*6).toFixed(2)+'s';
+      wrap.appendChild(d);
+    }
+    // reveal + skill bars
+    const io = new IntersectionObserver((ents)=>{
+      ents.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('show');
+          e.target.querySelectorAll?.('.bar > span')?.forEach(b=>{
+            const w = b.style.getPropertyValue('--w') || '80%';
+            requestAnimationFrame(()=> b.style.width = w);
+          });
+        }
+      });
+    },{threshold:0.2});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
