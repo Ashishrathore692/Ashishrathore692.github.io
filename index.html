@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
@@ -21,8 +21,6 @@
         linear-gradient(180deg,var(--bg1),var(--bg2));
       min-height:100vh; overflow-x:hidden;
     }
-
-    /* animated aurora + particles */
     .aurora{position:fixed; inset:-40vmax; z-index:-2; filter:blur(70px); opacity:.55; pointer-events:none;
       background: conic-gradient(from 180deg at 50% 50%, #5b8cff, #74e6ff, #a889ff, #ff7ad9, #5b8cff);
       animation: swirl 28s linear infinite}
@@ -32,7 +30,6 @@
       background:radial-gradient(circle at 30% 30%, #74e6ff, transparent 70%); opacity:.35;
       animation: float 14s ease-in-out infinite}
     @keyframes float{0%{transform:translateY(0) translateX(0)}50%{transform:translateY(-40px) translateX(20px)}100%{transform:translateY(0) translateX(0)}}
-
     header{position:sticky; top:0; z-index:50; backdrop-filter: blur(8px) saturate(140%);
       background:rgba(8,10,28,.55); border-bottom:1px solid #ffffff14}
     nav{max-width:1100px; margin:auto; padding:14px 18px; display:flex; align-items:center; justify-content:space-between}
@@ -43,9 +40,7 @@
     .tag{display:block; font-size:12px; color:var(--muted)}
     .menu a{color:var(--text); text-decoration:none; margin-left:18px; font-weight:700; font-size:14px; opacity:.9}
     .menu a:hover{opacity:1; text-shadow:0 0 18px #74e6ff88}
-
     .wrap{max-width:1100px; margin:0 auto; padding:64px 18px}
-    /* INTRO (top section) */
     .intro{display:grid; gap:28px; grid-template-columns:1.1fr .9fr; align-items:center}
     @media (max-width:900px){.intro{grid-template-columns:1fr}}
     .pill{display:inline-flex; gap:8px; align-items:center; padding:8px 12px; border-radius:999px;
@@ -64,30 +59,23 @@
     .scan:nth-child(4){top:166px; animation-delay:1.2s}
     .scan:nth-child(5){top:210px; animation-delay:1.6s}
     @keyframes scan{0%{transform:translateX(-20%)}50%{transform:translateX(20%)}100%{transform:translateX(-20%)}}
-
-    /* sections + glass cards */
     section{scroll-margin-top:80px}
     .section-title{font-size:28px; margin:34px 0 14px}
     .card{background:var(--glass); border:1px solid var(--glass-b); border-radius:18px; padding:20px; box-shadow:0 10px 30px #0007; backdrop-filter: blur(8px)}
     .about p{color:var(--muted); line-height:1.8}
-
     .skills{display:grid; gap:14px; grid-template-columns:repeat(2,minmax(0,1fr))}
     @media (min-width:820px){.skills{grid-template-columns:repeat(3,minmax(0,1fr))}}
     .skill{padding:14px; border-radius:14px; background:linear-gradient(180deg,#ffffff0a,#ffffff06); border:1px solid #ffffff14}
     .skill .n{font-weight:800}
     .bar{height:8px; border-radius:6px; background:#ffffff14; margin-top:10px; overflow:hidden}
     .bar>span{display:block; height:100%; width:0; background:linear-gradient(90deg,#74e6ff,#a889ff)}
-
     .projects{display:grid; gap:16px}
     @media (min-width:900px){.projects{grid-template-columns:repeat(3,1fr)}}
     .project h3{margin:10px 0 6px}
     .project p{color:var(--muted); font-size:14px}
     .project a{display:inline-block; margin-top:10px; font-weight:800; color:var(--text); text-decoration:none}
     .project a:hover{box-shadow:0 0 0 8px #74e6ff22}
-
     footer{padding:40px 18px; color:var(--muted); text-align:center}
-
-    /* reveal on scroll */
     .reveal{opacity:0; transform:translateY(18px); transition:.7s ease}
     .reveal.show{opacity:1; transform:none}
   </style>
@@ -95,7 +83,6 @@
 <body>
   <div class="aurora"></div>
   <div class="particles" aria-hidden="true"></div>
-
   <header>
     <nav>
       <div class="brand">
@@ -112,9 +99,7 @@
       </div>
     </nav>
   </header>
-
   <main class="wrap">
-    <!-- INTRO (top section) -->
     <section class="intro">
       <div>
         <div class="pill">Open to Work • Digital Marketing</div>
@@ -124,18 +109,13 @@
           Google Ads, Analytics, and creating simple business websites that convert.
         </p>
         <div class="cta">
-          <!-- Resume download button -->
-          <a class="btn btn-primary"
-             href="Black%20and%20White%20Simple%20Business%20School%20Graduate%20Corporate%20Resume%20(9).pdf"
-             download>📄 Download Resume</a>
+          <a class="btn btn-primary" href="resume.pdf" download>📄 Download Resume</a>
         </div>
       </div>
       <div class="mock" aria-hidden="true">
         <div class="scan"></div><div class="scan"></div><div class="scan"></div><div class="scan"></div><div class="scan"></div>
       </div>
     </section>
-
-    <!-- ABOUT -->
     <section id="about" class="about">
       <h2 class="section-title">About Me</h2>
       <div class="card reveal">
@@ -144,8 +124,6 @@
         and I’m ready to learn fast on real campaigns.</p>
       </div>
     </section>
-
-    <!-- SKILLS -->
     <section id="skills">
       <h2 class="section-title">Skills</h2>
       <div class="skills reveal">
@@ -161,8 +139,6 @@
         <div class="skill"><div class="n">SQL (Basics)</div><div class="bar"><span style="--w:60%"></span></div></div>
       </div>
     </section>
-
-    <!-- PROJECTS -->
     <section id="projects">
       <h2 class="section-title">Projects</h2>
       <div class="projects">
@@ -184,11 +160,8 @@
       </div>
     </section>
   </main>
-
   <footer>© <span id="year"></span> Ashish Rathore • Built with ♥</footer>
-
   <script>
-    // particles
     const wrap = document.querySelector('.particles');
     const N = 28;
     for(let i=0;i<N;i++){
@@ -199,7 +172,6 @@
       d.style.animationDelay = (Math.random()*6).toFixed(2)+'s';
       wrap.appendChild(d);
     }
-    // reveal + skill bars
     const io = new IntersectionObserver((ents)=>{
       ents.forEach(e=>{
         if(e.isIntersecting){
@@ -216,3 +188,4 @@
   </script>
 </body>
 </html>
+  
